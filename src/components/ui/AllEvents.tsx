@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useEffect, useState } from "react";
-import { allEvents, type Event } from "@/data/events";
+import { allEvents } from "@/data/events";
 
 export default function AllEvents({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
