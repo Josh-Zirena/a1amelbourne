@@ -10,6 +10,7 @@ type GalleryImage = {
   id: string;
   src: string;
   alt: string;
+  category: string;
 };
 
 export default function GallerySection() {
@@ -50,6 +51,15 @@ export default function GallerySection() {
         setGalleryImages(data);
       } catch (error) {
         console.error("Error fetching gallery data:", error);
+        // Set some default images in case of error
+        setGalleryImages([
+          {
+            id: 'default-1',
+            src: '/images/gallery/a1a_melbourne_wrestling.jpg',
+            alt: 'A1A Melbourne Wrestling',
+            category: 'events'
+          }
+        ]);
       } finally {
         setIsLoading(false);
       }
