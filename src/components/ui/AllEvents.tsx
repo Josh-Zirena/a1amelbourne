@@ -6,10 +6,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogPortal,
-} from "@/components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "@/components/shadcn/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/shadcn/tabs";
 import { useEffect, useState } from "react";
 import { allEvents } from "@/data/events";
+import Link from "next/link";
 
 export default function AllEvents({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
@@ -60,9 +61,14 @@ export default function AllEvents({ isOpen, onClose }: { isOpen: boolean; onClos
                         </svg>
                         <span className="truncate">{event.location}</span>
                       </div>
-                      <button className="mt-6 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
-                        Register Now
-                      </button>
+                      <div className="mt-auto pt-4">
+                        <Link
+                          href={event.registrationUrl}
+                          className="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center"
+                        >
+                          Register Now
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}

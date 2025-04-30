@@ -3,6 +3,9 @@
 import { allEvents } from "@/data/events";
 import { useState, useMemo } from "react";
 import AllEvents from "./AllEvents";
+import Link from "next/link";
+import Image from "next/image";
+import { useEffect } from "react";
 
 export default function UpcomingEvents() {
   const [isAllEventsOpen, setIsAllEventsOpen] = useState(false);
@@ -27,13 +30,22 @@ export default function UpcomingEvents() {
       .slice(0, 2); // Take the first two upcoming events
   }, []);
 
+  // Preload images for upcoming events
+  useEffect(() => {
+    upcomingEvents.forEach((event) => {
+      const img = new window.Image();
+      img.src = event.image.startsWith('/') ? event.image : `/${event.image}`;
+    });
+  }, [upcomingEvents]);
+
   return (
-    <div className="bg-emerald-50 py-16">
+    <section id="upcoming-events" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-emerald-900 mb-4">
             Upcoming Events
           </h2>
+          <div className="w-24 h-1 bg-emerald-500 mx-auto mb-4"></div>
           <p className="text-emerald-700 max-w-2xl mx-auto">
             Don&apos;t miss out on the action! Join us for our upcoming
             wrestling events in Melbourne, FL.
@@ -47,9 +59,13 @@ export default function UpcomingEvents() {
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full max-w-[500px] mx-auto w-full"
             >
               <div className="relative h-48 flex-shrink-0">
-                <div
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${event.image}')` }}
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={idx === 0} // Prioritize loading the first image
                 />
               </div>
               <div className="p-6 flex flex-col flex-grow">
@@ -96,9 +112,12 @@ export default function UpcomingEvents() {
                     <span className="truncate">{event.location}</span>
                   </div>
                 </div>
-                <button className="mt-6 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                <Link
+                  href={event.registrationUrl}
+                  className="mt-6 w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-center block"
+                >
                   Register Now
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -118,6 +137,6 @@ export default function UpcomingEvents() {
         isOpen={isAllEventsOpen}
         onClose={() => setIsAllEventsOpen(false)}
       />
-    </div>
+    </section>
   );
 }

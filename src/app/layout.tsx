@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900">
+      <body className="text-gray-900">
         {children}
         <div id="dialog-portal" className="fixed inset-0 z-50 pointer-events-none" />
       </body>
