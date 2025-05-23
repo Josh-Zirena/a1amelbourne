@@ -6,7 +6,7 @@ A modern landing page built with Next.js, React, and TailwindCSS for a local you
 
 ## 🌐 Live Website
 
-Visit our live website at: [https://main.d6xbnuo6kzpz9.amplifyapp.com/](https://main.d6xbnuo6kzpz9.amplifyapp.com/)
+This website is hosted on AWS Amplify, providing fast and reliable global content delivery. Visit our live website at: [https://main.d6xbnuo6kzpz9.amplifyapp.com/](https://main.d6xbnuo6kzpz9.amplifyapp.com/)
 
 ## Features
 
