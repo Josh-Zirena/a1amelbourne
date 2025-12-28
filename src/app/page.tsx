@@ -1,4 +1,5 @@
 import HeroSection from "@/components/ui/HeroSection";
+import GearSection from "@/components/ui/GearSection";
 import MissionStatement from "@/components/ui/MissionStatement";
 import ConnectSection from "@/components/ui/ConnectSection";
 import LocationMap from "@/components/ui/LocationMap";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen">
       <div className="flex-grow">
         <HeroSection />
+        <GearSection />
         <MissionStatement />
         <ConnectSection />
         <LocationMap />

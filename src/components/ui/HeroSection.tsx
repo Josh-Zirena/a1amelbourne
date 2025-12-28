@@ -29,13 +29,18 @@ export default function HeroSection() {
         <div className="mt-8 flex gap-4 justify-center">
           <button
             onClick={scrollToEvents}
-            className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors cursor-pointer"
+            className="min-w-[140px] px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors cursor-pointer text-base shadow-md border border-emerald-600"
           >
             View Events
           </button>
-          <button className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-colors cursor-pointer">
-            Learn More
-          </button>
+          <a
+            href="https://www.paypal.com/donate-link-placeholder"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="min-w-[140px] px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-semibold rounded-lg transition-colors cursor-pointer text-base shadow-md border border-yellow-500 flex items-center justify-center"
+          >
+            Donate
+          </a>
         </div>
       </div>
     </section>
