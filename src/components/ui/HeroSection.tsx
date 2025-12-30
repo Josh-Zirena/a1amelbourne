@@ -34,7 +34,7 @@ export default function HeroSection() {
             View Events
           </button>
           <a
-            href="https://www.paypal.com/donate-link-placeholder"
+            href="https://checkout.square.site/merchant/MLAR107HZ4FZ4/checkout/VB4DXBB55ZAIAOR2PGXFFOPQ"
             target="_blank"
             rel="noopener noreferrer"
             className="min-w-[140px] px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-emerald-900 font-semibold rounded-lg transition-colors cursor-pointer text-base shadow-md border border-yellow-500 flex items-center justify-center"
